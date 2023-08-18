@@ -7,14 +7,14 @@ using Unity.Netcode.Components;
 public class PlayerMovement : NetworkBehaviour
 {
     [SerializeField] private float movementSpeed = 7.0f;
-    [SerializeField] private float rotationSpeed = 500.0f;
+    //[SerializeField] private float rotationSpeed = 500.0f;
     [SerializeField]
     private float positionRange = 3f;
     [SerializeField] private PlayerControls playerInput;
 
+    public static Dictionary<ulong, PlayerMovement> Players = new Dictionary<ulong, PlayerMovement>();
 
     private InputAction move;
-    private InputAction fire;
 
     //private Animator animator;
     // Start is called before the first frame update
@@ -28,12 +28,12 @@ public class PlayerMovement : NetworkBehaviour
     {
         move = playerInput.Player.Move;
         move.Enable();
-        //fire = playerInput.Player.Fire;
-        //fire.Enable();
+
     }
 
     public override void OnNetworkSpawn()
     {
+        Players[OwnerClientId] = this;
         base.OnNetworkSpawn();
         UpdatePositionServerRpc();
     }
@@ -41,7 +41,6 @@ public class PlayerMovement : NetworkBehaviour
     private void OnDisable()
     {
         move.Disable();
-        //fire.Disable();
     }
     // Update is called once per frame
     void Update()

@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/XRMultiplayerSetup.unity
+    guid: ad64e137e5ef24246a6ab5f096157366
+  - enabled: 0
+    path: Assets/Scenes/XRMultiplayerMain.unity
+    guid: 8de794a1329b5fd44a5b63eceef8c635
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  m_configObjects: {}
+    path: Assets/Scenes/GetStarted.unity
+    guid: 325cccec42ad12749a68fc7c3d224ca7
+  m_configObjects:
+    Unity.XR.PICO.LivePreview.Settings: {fileID: 11400000, guid: 5b03169bc09db3643ad5de2aebd2bc44, type: 2}
+    Unity.XR.PXR.Settings: {fileID: 11400000, guid: 1f518bf0d3b2e8c459371fe01591b90e, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5fce1349a37211249ba4e2dce8fd59f5, type: 2}
